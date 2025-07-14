@@ -76,7 +76,7 @@ if uploaded_file is not None:
                 color = "red"
             folium.CircleMarker(
                 location=[lat, lon],
-                radius=value / 3,  
+                radius=value / 4,  
                 color=color,
                 fill=True,
                 fill_opacity=0.7,
@@ -92,7 +92,7 @@ if uploaded_file is not None:
                 color = "green"
             folium.CircleMarker(
                 location=[lat, lon],
-                radius=value * 5,  
+                radius=value * 6,  
                 color=color,
                 fill=True,
                 fill_opacity=0.7,
@@ -108,7 +108,7 @@ if uploaded_file is not None:
                 color = "red"
             folium.CircleMarker(
                 location=[lat, lon],
-                radius=value / 3,  
+                radius=value / 4,  
                 color=color,
                 fill=True,
                 fill_opacity=0.7,
