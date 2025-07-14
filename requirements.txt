@@ -2,3 +2,4 @@ streamlit
 folium
 plotly
 streamlit_folium
+openpyxl
