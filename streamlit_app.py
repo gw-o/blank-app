@@ -92,10 +92,10 @@ if uploaded_file is not None:
                 color = "green"
             folium.CircleMarker(
                 location=[lat, lon],
-                radius=value / 3,  
+                radius=value * 3,  
                 color=color,
                 fill=True,
-                fill_opacity=1.5,
+                fill_opacity=0.7,
                 popup=f"{name}: {value:.2f}%",
                 tooltip=f"{name} ({value:.2f}%)"
             ).add_to(m)
