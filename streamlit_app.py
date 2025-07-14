@@ -27,6 +27,7 @@ if uploaded_file is not None:
     month_view["고용률(%)"]=month["취업자계"]/month_view["15세이상인구"]*100
     month_view["실업률(%)"]=month["실업자계"]/month_view["경제활동인구"]*100
     cols2 = [month_view.columns[0]] + list(month_view.columns[3:])
+    month_view.reset_index(drop=True, inplace=True)
     month_view=month_view[cols2]
     st.subheader("고용지표 표")
     st.dataframe(month_view, use_container_width=True)
