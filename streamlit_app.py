@@ -68,7 +68,7 @@ if uploaded_file is not None:
         if pd.isna(lat) or pd.isna(lon) or pd.isna(value):
             continue
         if map_indicator == "고용률(%)":
-            if value >= 70:
+            if value >= 65:
                 color = "green"
             elif value >= 60:
                 color = "orange"
@@ -84,9 +84,9 @@ if uploaded_file is not None:
                 tooltip=f"{name} ({value:.2f}%)"
             ).add_to(m)
         elif map_indicator == "실업률(%)":
-            if value >= 5:
+            if value >= 3:
                 color = "red"
-            elif value >= 3:
+            elif value >= 2:
                 color = "orange"
             else:
                 color = "green"
@@ -100,7 +100,7 @@ if uploaded_file is not None:
                 tooltip=f"{name} ({value:.2f}%)"
             ).add_to(m)
         elif map_indicator == "경제활동참가율(%)":
-            if value >= 70:
+            if value >= 65:
                 color = "green"
             elif value >= 60:
                 color = "orange"
