@@ -74,6 +74,15 @@ if uploaded_file is not None:
                 color = "orange"
             else:
                 color = "red"
+            folium.CircleMarker(
+                location=[lat, lon],
+                radius=value / 3,  
+                color=color,
+                fill=True,
+                fill_opacity=0.7,
+                popup=f"{name}: {value:.2f}%",
+                tooltip=f"{name} ({value:.2f}%)"
+            ).add_to(m)
         elif map_indicator == "실업률(%)":
             if value >= 5:
                 color = "red"
@@ -81,6 +90,15 @@ if uploaded_file is not None:
                 color = "orange"
             else:
                 color = "green"
+            folium.CircleMarker(
+                location=[lat, lon],
+                radius=value / 3,  
+                color=color,
+                fill=True,
+                fill_opacity=1.5,
+                popup=f"{name}: {value:.2f}%",
+                tooltip=f"{name} ({value:.2f}%)"
+            ).add_to(m)
         elif map_indicator == "경제활동참가율(%)":
             if value >= 70:
                 color = "green"
@@ -88,15 +106,15 @@ if uploaded_file is not None:
                 color = "orange"
             else:
                 color = "red"
-        folium.CircleMarker(
-            location=[lat, lon],
-            radius=value / 3,  
-            color=color,
-            fill=True,
-            fill_opacity=0.7,
-            popup=f"{name}: {value:.2f}%",
-            tooltip=f"{name} ({value:.2f}%)"
-        ).add_to(m)
+            folium.CircleMarker(
+                location=[lat, lon],
+                radius=value / 3,  
+                color=color,
+                fill=True,
+                fill_opacity=0.7,
+                popup=f"{name}: {value:.2f}%",
+                tooltip=f"{name} ({value:.2f}%)"
+            ).add_to(m)
     st.subheader(f"시도별 {map_indicator} 지도 시각화")
     st_data = st_folium(m, width=725)
 else:
