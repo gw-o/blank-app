@@ -28,9 +28,8 @@ if uploaded_file is not None:
     month_view["실업률(%)"]=month["실업자계"]/month_view["경제활동인구"]*100
     cols2 = [month_view.columns[0]] + list(month_view.columns[3:])
     month_view=month_view[cols2]
-    month_view.reset_index(drop=True, inplace=True)
     st.subheader("고용지표 표")
-    st.dataframe(month_view, use_container_width=True)
+    st.dataframe(month_view.reset_index(drop=True), use_container_width=True)
     indicator = st.selectbox("시각화할 지표를 선택하세요", ["고용률(%)", "실업률(%)", "경제활동참가율(%)"])
     df = month_view.copy()
     st.subheader(f"시도별 {indicator} 비교")
