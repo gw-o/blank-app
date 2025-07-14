@@ -9,10 +9,7 @@ warnings.filterwarnings("ignore")
 st.set_page_config(layout="wide")
 st.title("지역별 고용지표 대시보드")
 uploaded_file = st.file_uploader("엑셀 파일 업로드", type=["xlsx"])
-if not uploaded_file:
-    st.warning("엑셀 파일을 업로드하면 대시보드가 표시됩니다.")
-    st.stop()
-if uploaded_file:
+if uploaded_file is not None:
     data = pd.read_excel(uploaded_file, skiprows=1, header=1)
     data.columns = data.columns.str.lower()
     data = data.dropna(subset=['ednum'])
@@ -100,3 +97,6 @@ if uploaded_file:
         ).add_to(m)
     st.subheader(f"시도별 {map_indicator} 지도 시각화")
     st_data = st_folium(m, width=725)
+else:
+    st.warning("엑셀 파일을 업로드하면 대시보드가 표시됩니다.")
+    st.stop()
